@@ -10,7 +10,6 @@
     enableSyntaxHighlighting = true;
     shellAliases = {
       ll = "ls -l";
-      # update = "home-manager switch --impure";
       j= "jump";
     };
     oh-my-zsh = {

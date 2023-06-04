@@ -17,5 +17,8 @@ in {
     #   signByDefault = true;
     # };
     #hooks = { pre-commit = __user.gitPreCommitHook; };
+
+    # set default branch to main
+    extraConfig.init.defaultBranch = "main";
   };
 } // (importedPrograms)
