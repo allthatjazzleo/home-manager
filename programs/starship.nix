@@ -1,6 +1,4 @@
-{ homeDirectory
-, pkgs
-, __user }:
+{ ... }:
 
 {
   starship = {
@@ -48,14 +46,14 @@
       package.disabled = true;
       time = {
         disabled = false;
-        format = "🕙[\\[ $time \\]]($style) ";
+        format = "🕙[\\[$time\\]]($style) ";
         time_format = "%T";
         utc_time_offset = "local";
       };
       username = {
         disabled = false;
-        style_root = "green bold";
-        format = "😈 [$user]($style) ";
+        style_user = "green bold";
+        format = "[$user]($style) ";
         show_always = true;
       };
       rust = {

@@ -5,7 +5,6 @@ let
     ansible
     awscli2
     cachix
-    cargo
     direnv
     gh
     git-open
@@ -14,11 +13,12 @@ let
     helmfile
     inetutils
     kubectl
+    kubectx
     kubernetes-helm
     lorri
     nixfmt
     nodejs-18_x
-    rustc
+    rustup
     terraform
     tmux
     tree

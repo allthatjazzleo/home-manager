@@ -1,6 +1,4 @@
-{ homeDirectory
-, pkgs
-, __user }:
+{ ... }:
 
 {
   zsh = {
@@ -9,8 +7,11 @@
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     shellAliases = {
-      ll = "ls -l";
+      ll = "ls -alh";
       j= "jump";
+      o = "open";
+      kctx = "kubectx";
+      kns = "kubens";
     };
     oh-my-zsh = {
       enable = true;
@@ -42,6 +43,9 @@
       size = 100000;
     };
     initExtraFirst = ''
+      # Cargo
+      export PATH="$HOME/.cargo/bin:$PATH"
+      # End Cargo
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
