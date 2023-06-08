@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    std.url = "github:divnix/std";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       # Values you should modify
       system = "aarch64-darwin";  # x86_64-linux, aarch64-multiplatform, etc.
@@ -22,6 +23,12 @@
         config = {
           allowUnfree = true;
         };
+        # Add an overlay to include the package from inputs.std.aarch64-darwin.std.cli.default
+        overlays = [
+          (self: super: {
+            std = inputs.std.${system}.std.cli.default;
+          })
+        ];
       };
       __user = import ./user.nix; # modify this file to specify your user
       homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";

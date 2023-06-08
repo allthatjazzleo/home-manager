@@ -19,6 +19,7 @@ let
     nixfmt
     nodejs-18_x
     rustup
+    std
     terraform
     tmux
     tree
