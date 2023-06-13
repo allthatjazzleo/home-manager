@@ -24,6 +24,7 @@ let
     terraform
     tmux
     tree
+    htop
     yarn
     zsh-autosuggestions
     zsh-syntax-highlighting

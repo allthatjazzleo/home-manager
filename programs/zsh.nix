@@ -8,7 +8,7 @@
     enableSyntaxHighlighting = true;
     shellAliases = {
       ll = "ls -alh";
-      j= "jump";
+      j = "jump";
       o = "open";
       kctx = "kubectx";
       kns = "kubens";
@@ -39,9 +39,7 @@
       ];
       theme = "dst";
     };
-    history = {
-      size = 100000;
-    };
+    history = { size = 100000; };
     initExtraFirst = ''
       # Cargo
       export PATH="$HOME/.cargo/bin:$PATH"

@@ -59,28 +59,23 @@
       rust = {
         disabled = false;
         format = "via [🦀 $version](red bold) ";
-      };      
+      };
       python = {
         format = "via [🐍 $version](bold green) ";
         style = "bold yellow";
         pyenv_version_name = true;
       };
-      nodejs = {
-        format = "via [🤖 $version](bold green) ";
-      };
-      golang = {
-        format = "via [🏎💨 $version](bold cyan) ";
-      };
-      terraform = {
-        format = "via [🏎💨 $version$workspace]($style) ";
-      };
+      nodejs = { format = "via [🤖 $version](bold green) "; };
+      golang = { format = "via [🏎💨 $version](bold cyan) "; };
+      terraform = { format = "via [🏎💨 $version$workspace]($style) "; };
       kubernetes = {
-        format = "on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) ";
+        format =
+          "on [⛵ ($user on )($cluster in )$context ($namespace)](dimmed green) ";
         disabled = false;
         context_aliases = {
           "dev.local.cluster.k8s" = "dev";
           ".*/openshift-cluster/.*" = "openshift";
-          "gke_.*_(?P<var_cluster>[\w-]+)" = "gke-$var_cluster";
+          "gke_.*_(?P<var_cluster>[w-]+)" = "gke-$var_cluster";
         };
         user_aliases = {
           "dev.local.cluster.k8s" = "dev";

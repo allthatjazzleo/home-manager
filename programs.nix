@@ -1,10 +1,11 @@
-{ homeDirectory
-, pkgs
-, user }:
+{ homeDirectory, pkgs, user }:
 let
-  programFiles = builtins.filter (file: builtins.match ".*\\.nix" file != null) (builtins.attrNames (builtins.readDir ./programs));
-  importProgram = file: import ./programs/${file} { inherit homeDirectory pkgs user; };
-  importedPrograms = builtins.foldl' (acc: attrSet: acc // attrSet) {} (builtins.map (file: importProgram file) programFiles);
+  programFiles = builtins.filter (file: builtins.match ".*\\.nix" file != null)
+    (builtins.attrNames (builtins.readDir ./programs));
+  importProgram = file:
+    import ./programs/${file} { inherit homeDirectory pkgs user; };
+  importedPrograms = builtins.foldl' (acc: attrSet: acc // attrSet) { }
+    (builtins.map (file: importProgram file) programFiles);
 in {
   home-manager.enable = true;
   direnv.enable = true;
