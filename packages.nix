@@ -2,6 +2,7 @@
 
 let
   nixTools = with pkgs; [
+    agenix
     ansible
     awscli2
     cachix

@@ -1,18 +1,16 @@
-{ homeDirectory
-, pkgs
-, stateVersion
-, system
-, __user }:
+{ homeDirectory, pkgs, stateVersion, system, user }:
 
-let
-  packages = import ./packages.nix { inherit pkgs; };
+let packages = import ./packages.nix { inherit pkgs; };
 in {
+  age.secrets.ssh-config = {
+    file = ./secrets/ssh-config.age;
+    path = "${homeDirectory}/.ssh/config";
+  };
+
   home = {
     inherit homeDirectory packages stateVersion;
-    username = __user.username;
-    shellAliases = {
-      update = "home-manager switch";
-    };
+    username = user.username;
+    shellAliases = { update = "home-manager switch"; };
   };
 
   nixpkgs = {
@@ -24,5 +22,5 @@ in {
     };
   };
 
-  programs = import ./programs.nix { inherit homeDirectory pkgs __user; };
+  programs = import ./programs.nix { inherit homeDirectory pkgs user; };
 }
