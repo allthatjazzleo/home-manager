@@ -25,16 +25,16 @@
         format = "[$hash$tag]($style) ";
       };
       git_status = {
-        ahead = "🏎💨";
-        behind = "😰";
-        diverged = "😵";
+        ahead = "⇡$count";
+        behind = "⇣$count";
+        diverged = "⇕⇡$ahead_count⇣$behind_count";
         conflicted = "💥";
-        deleted = "🗑";
-        modified = "📝";
+        deleted = "🗑$count";
+        modified = "📝$count";
         renamed = "🏷";
-        staged = "🔦";
-        stashed = "📦";
-        untracked = "🌚‍";
+        staged = "[++\($count\)](green)";
+        stashed = "📦$count";
+        untracked = "🤷$count";
       };
       git_branch = {
         symbol = "🌱 ";
