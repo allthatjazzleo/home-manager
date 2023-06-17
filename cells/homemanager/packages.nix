@@ -1,8 +1,7 @@
-{ pkgs }:
-
-let
-  nixTools = with pkgs; [
-    agenix
+{ inputs, cell, }:
+let inherit (inputs) nixpkgs;
+in {
+  nixTools = with nixpkgs; [
     ansible
     awscli2
     cachix
@@ -20,7 +19,6 @@ let
     nixfmt
     nodejs-18_x
     rustup
-    std
     terraform
     tmux
     tree
@@ -28,5 +26,9 @@ let
     yarn
     zsh-autosuggestions
     zsh-syntax-highlighting
+
+    # from inputs
+    inputs.agenix.packages.agenix
+    inputs.std.std.cli.std
   ];
-in nixTools
+}

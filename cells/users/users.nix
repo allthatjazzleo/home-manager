@@ -1,4 +1,9 @@
-rec {
+{
+  inputs,
+  cell,
+}: 
+
+{
   leopang = {
     email = "pangleo1994@gmail.com";
     # gitSigningKey = "";

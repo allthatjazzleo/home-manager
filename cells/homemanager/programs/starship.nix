@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, cell, ... }:
 
 {
   starship = {
@@ -32,7 +32,7 @@
         deleted = "🗑$count";
         modified = "📝$count";
         renamed = "🏷";
-        staged = "[++\($count\)](green)";
+        staged = "[++($count)](green)";
         stashed = "📦$count";
         untracked = "🤷$count";
       };

@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, cell, ... }:
 
 {
   zsh = {
@@ -52,6 +52,8 @@
     '';
     initExtra = ''
       bindkey '^f' autosuggest-accept
+      # agenix
+      export EDITOR="vim"
     '';
   };
 
