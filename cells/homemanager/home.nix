@@ -32,8 +32,8 @@ in {
       nixpkgs = {
         config = {
           allowUnfree = true;
+          allowUnfreePredicate = (pkg: true);
           allowUnsupportedSystem = true;
-          experimental-features = "nix-command flakes";
         };
       };
     };

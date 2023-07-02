@@ -6,10 +6,13 @@ in {
     awscli2
     cachix
     direnv
+    delve
     gh
     git-open
     gnupg
     go
+    gopls
+    go-tools
     helmfile
     inetutils
     kubectl
