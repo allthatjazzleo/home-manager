@@ -1,13 +1,14 @@
 { inputs, cell, }:
 let
   inherit (inputs) nixpkgs;
-  packages = cell.packages.nixTools;
+  nixTools = cell.packages.nixTools;
 in {
   home = { config, user, ... }:
     let
       homeDirPrefix =
         if nixpkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
       homeDirectory = "${homeDirPrefix}/${user.username}";
+      packages = (nixTools user);
     in {
       home = {
         inherit homeDirectory packages;

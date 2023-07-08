@@ -1,8 +1,11 @@
-{ inputs, cell, ... }:
+{ inputs, cell, user, ... }:
 
 {
   zsh = {
-    enable = true;
+    enable = 
+      if builtins.hasAttr "zsh" user && user.zsh == false
+      then false
+      else true;
     enableCompletion = true;
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;

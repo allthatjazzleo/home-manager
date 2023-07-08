@@ -1,19 +1,20 @@
 { inputs, cell, }:
 let inherit (inputs) nixpkgs;
 in {
-  nixTools = with nixpkgs; [
+  nixTools = user: with nixpkgs; [
     ansible
     awscli2
     cachix
-    direnv
     delve
+    direnv
     gh
     git-open
     gnupg
     go
-    gopls
     go-tools
+    gopls
     helmfile
+    htop
     inetutils
     kubectl
     kubectx
@@ -22,10 +23,10 @@ in {
     nixfmt
     nodejs-18_x
     rustup
+    starship
     terraform
     tmux
     tree
-    htop
     yarn
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -33,5 +34,5 @@ in {
     # from inputs
     inputs.agenix.packages.agenix
     inputs.std.std.cli.std
-  ];
+  ] ++ user.packages or [];
 }
