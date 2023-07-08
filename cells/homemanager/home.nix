@@ -3,7 +3,7 @@ let
   inherit (inputs) nixpkgs;
   nixTools = cell.packages.nixTools;
 in {
-  home = { config, user, ... }:
+  home = { config, user, options, ... }:
     let
       homeDirPrefix =
         if nixpkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
@@ -19,6 +19,9 @@ in {
       };
 
       programs = (cell.programs.default homeDirectory user);
+
+      age.identityPaths = options.age.identityPaths.default
+        ++ user.ageIdentityPaths or [ ];
 
       age.secrets.ssh-config = {
         file = ./secrets/ssh-config.age;
