@@ -2,10 +2,10 @@
 
 {
   starship = {
-    enable =
-      if builtins.hasAttr "starship" user && user.starship == false
-      then false
-      else true;
+    enable = if builtins.hasAttr "starship" user && user.starship == false then
+      false
+    else
+      true;
     # Configuration written to ~/.config/starship.toml
     settings = {
       add_newline = false;

@@ -1,7 +1,4 @@
-{
-  inputs,
-  cell,
-}: 
+{ inputs, cell, }:
 
 {
   leopang = {
@@ -10,9 +7,7 @@
     name = "Leo Pang";
     username = "leopang";
     github_username = "allthatjazzleo";
-    packages = with inputs.nixpkgs; [
-      kustomize
-    ]; # user specific packages
+    packages = with inputs.nixpkgs; [ kustomize ]; # user specific packages
   };
   workuser = {
     email = "xx@xxx.com";
