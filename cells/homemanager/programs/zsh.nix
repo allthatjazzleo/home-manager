@@ -2,8 +2,7 @@
 
 {
   zsh = {
-    enable =
-      if builtins.hasAttr "zsh" user && user.zsh == false then false else true;
+    enable = user.zsh or true;
     enableCompletion = true;
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;

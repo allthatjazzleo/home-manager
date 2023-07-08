@@ -2,9 +2,6 @@
 
 {
   vscode = {
-    enable = if builtins.hasAttr "vscode" user && user.vscode == false then
-      false
-    else
-      true;
+    enable = user.vscode or true;
   };
 }
