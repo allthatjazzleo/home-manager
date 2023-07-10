@@ -2,7 +2,10 @@
 let inherit (inputs) nixpkgs;
 in {
   nixTools = user:
-    with nixpkgs;
+    let
+      userPackages =
+        if builtins.hasAttr "packages" user then user.packages nixpkgs else [ ];
+    in with nixpkgs;
     [
       ansible
       awscli2
@@ -36,5 +39,5 @@ in {
       # from inputs
       inputs.agenix.packages.agenix
       inputs.std.std.cli.std
-    ] ++ user.packages or [ ];
+    ] ++ userPackages;
 }

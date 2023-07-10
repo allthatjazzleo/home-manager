@@ -17,10 +17,14 @@ in {
         enable = true;
         userEmail = user.email;
         userName = user.github_username;
-        # signing = {
-        #   key = user.gitSigningKey;
-        #   signByDefault = true;
-        # };
+        signing = {
+          key = if builtins.hasAttr "gitSigningKey" user then
+            user.gitSigningKey
+          else
+            null;
+          signByDefault =
+            if builtins.hasAttr "gitSigningKey" user then true else false;
+        };
         #hooks = { pre-commit = user.gitPreCommitHook; };
 
         # set default branch to main

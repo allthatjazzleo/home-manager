@@ -16,6 +16,14 @@ in {
         stateVersion =
           "23.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
         shellAliases = { update = "home-manager switch"; };
+
+        file.".config/nixpkgs/config.nix".text = ''
+          { 
+            allowUnfree = true; 
+            allowUnfreePredicate = (pkg: true);
+            allowUnsupportedSystem = true;
+          }
+        '';
       };
 
       programs = (cell.programs.default homeDirectory user);
@@ -36,7 +44,7 @@ in {
       nixpkgs = {
         config = {
           allowUnfree = true;
-          allowUnfreePredicate = (pkg: true);
+          allowUnfreePredicate = (_: true);
           allowUnsupportedSystem = true;
         };
       };

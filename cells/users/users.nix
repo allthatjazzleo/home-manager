@@ -7,9 +7,8 @@
     name = "Leo Pang";
     username = "leopang";
     github_username = "allthatjazzleo";
-    packages = with inputs.nixpkgs; [ kustomize ]; # user specific packages
-    # programs
-    # zsh = false;
+    packages = pkgs: with pkgs; [ kustomize ]; # user specific packages
+    # zsh = false; # programs
   };
   workuser = {
     email = "xx@xxx.com";
