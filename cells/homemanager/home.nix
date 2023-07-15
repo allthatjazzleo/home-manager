@@ -9,6 +9,11 @@ in {
         if nixpkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
       homeDirectory = "${homeDirPrefix}/${user.username}";
       packages = (nixTools user);
+      userAgeIdentityPaths = if builtins.hasAttr "ageIdentityPaths" user then
+        map (path: builtins.replaceStrings [ "~" ] [ homeDirectory ] path)
+        user.ageIdentityPaths
+      else
+        [ ];
     in {
       home = {
         inherit homeDirectory packages;
@@ -29,13 +34,11 @@ in {
       programs = (cell.programs.default homeDirectory user);
 
       age.identityPaths = options.age.identityPaths.default
-        ++ user.ageIdentityPaths or [ ];
-
+        ++ userAgeIdentityPaths;
       age.secrets.ssh-config = {
         file = ./secrets/ssh-config.age;
         path = "${homeDirectory}/.ssh/config";
       };
-
       age.secrets.nix-config = {
         file = ./secrets/nix.conf.age;
         path = "${homeDirectory}/.config/nix/nix.conf";

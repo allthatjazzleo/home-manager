@@ -1,6 +1,6 @@
 let
   leopang =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAm7QAIWdg/qsbNSerGH+JRw4y3TjWwRhqXp0dC9PHpi";
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJsF4iQmvHnLvSOnAuHMvpFaVww3TpAiNoIR6I1IxfcJ";
   workuser = "ssh-ed25519 xxx";
   users = [ leopang ];
 in {
