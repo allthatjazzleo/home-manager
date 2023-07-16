@@ -7,10 +7,8 @@
     name = "Leo Pang";
     username = "leopang";
     github_username = "allthatjazzleo";
-    packages = pkgs: with pkgs; [ kustomize ]; # user specific packages
-    ageIdentityPaths = [
-      "~/.ssh/id_ed25519_homemanager"
-    ];
+    packages = pkgs: with pkgs; [ discord zoom-us utm ]; # user specific packages
+    ageIdentityPaths = [ "~/.ssh/id_ed25519_homemanager" ];
     # zsh = false; # programs
   };
   workuser = {

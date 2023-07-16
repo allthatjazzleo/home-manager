@@ -3,9 +3,18 @@ let inherit (inputs) nixpkgs;
 in {
   nixTools = user:
     let
+      system = builtins.currentSystem;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+          allowUnsupportedSystem = true;
+        };
+      };
       userPackages =
-        if builtins.hasAttr "packages" user then user.packages nixpkgs else [ ];
-    in with nixpkgs;
+        if builtins.hasAttr "packages" user then user.packages pkgs else [ ];
+    in with pkgs;
     [
       ansible
       awscli2
@@ -24,6 +33,7 @@ in {
       kubectl
       kubectx
       kubernetes-helm
+      kustomize
       lorri
       nixfmt
       nodejs-18_x

@@ -9,7 +9,7 @@ nix run .#homeConfigurations.$USER.activationPackage
 ```
 # After first run
 ```sh
-home-manager switch
+home-manager switch --impure
 ```
 
 # update
