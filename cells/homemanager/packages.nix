@@ -3,24 +3,16 @@ let inherit (inputs) nixpkgs;
 in {
   nixTools = user:
     let
-      system = builtins.currentSystem;
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-          allowUnsupportedSystem = true;
-        };
-      };
       userPackages =
-        if builtins.hasAttr "packages" user then user.packages pkgs else [ ];
-    in with pkgs;
+        if builtins.hasAttr "packages" user then user.packages nixpkgs else [ ];
+    in with nixpkgs;
     [
       ansible
       awscli2
       cachix
       delve
       direnv
+      dive
       gh
       git-open
       gnupg
@@ -30,6 +22,7 @@ in {
       helmfile
       htop
       inetutils
+      just
       kubectl
       kubectx
       kubernetes-helm
@@ -38,6 +31,7 @@ in {
       nixfmt
       nodejs-18_x
       rustup
+      shellcheck
       starship
       terraform
       tmux

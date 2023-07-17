@@ -20,9 +20,7 @@ in {
         username = user.username;
         stateVersion =
           "23.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
-        shellAliases = {
-          update = "home-manager switch --impure";
-        }; # --impure is required for builtins.currentSystem in flake
+        shellAliases = { update = "home-manager switch"; };
 
         file.".config/nixpkgs/config.nix".text = ''
           { 
