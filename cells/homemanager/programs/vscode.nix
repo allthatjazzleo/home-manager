@@ -1,6 +1,9 @@
-{ inputs, cell, user, ... }:
-
 {
+  inputs,
+  cell,
+  user,
+  ...
+}: {
   vscode = {
     enable = user.vscode or true;
   };

@@ -1,6 +1,7 @@
-{ inputs, cell, }:
-
 {
+  inputs,
+  cell,
+}: {
   leopang = {
     email = "pangleo1994@gmail.com";
     gitSigningKey = "07F0D06865380163";
@@ -14,7 +15,7 @@
         utm
         postman
       ]; # user specific packages
-    ageIdentityPaths = [ "~/.ssh/id_ed25519_homemanager" ];
+    ageIdentityPaths = ["~/.ssh/id_ed25519_homemanager"];
     # zsh = false; # programs
   };
   workuser = {

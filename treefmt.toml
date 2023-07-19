@@ -1,0 +1,6 @@
+[formatter.nix]
+command = "alejandra"
+includes = ["*.nix"]
+
+[global]
+excludes = ["treefmt.toml"]

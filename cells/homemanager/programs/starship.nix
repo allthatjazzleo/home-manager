@@ -1,6 +1,9 @@
-{ inputs, cell, user, ... }:
-
 {
+  inputs,
+  cell,
+  user,
+  ...
+}: {
   starship = {
     enable = user.starship or true;
     # Configuration written to ~/.config/starship.toml
@@ -65,12 +68,11 @@
         style = "bold yellow";
         pyenv_version_name = true;
       };
-      nodejs = { format = "via [🤖 $version](bold green) "; };
-      golang = { format = "via [🏎💨 $version](bold cyan) "; };
-      terraform = { format = "via [🏎💨 $version$workspace]($style) "; };
+      nodejs = {format = "via [🤖 $version](bold green) ";};
+      golang = {format = "via [🏎💨 $version](bold cyan) ";};
+      terraform = {format = "via [🏎💨 $version$workspace]($style) ";};
       kubernetes = {
-        format =
-          "on [⛵ ($user on )($cluster in )$context ($namespace)](dimmed green) ";
+        format = "on [⛵ ($user on )($cluster in )$context ($namespace)](dimmed green) ";
         disabled = false;
         context_aliases = {
           "dev.local.cluster.k8s" = "dev";

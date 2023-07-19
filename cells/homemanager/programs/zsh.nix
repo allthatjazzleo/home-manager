@@ -1,6 +1,9 @@
-{ inputs, cell, user, ... }:
-
 {
+  inputs,
+  cell,
+  user,
+  ...
+}: {
   zsh = {
     enable = user.zsh or true;
     enableCompletion = true;
@@ -39,7 +42,7 @@
       ];
       theme = "dst";
     };
-    history = { size = 100000; };
+    history = {size = 100000;};
     initExtraFirst = ''
       # Cargo
       export PATH="$HOME/.cargo/bin:$PATH"
