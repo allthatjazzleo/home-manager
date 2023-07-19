@@ -3,7 +3,7 @@
 {
   leopang = {
     email = "pangleo1994@gmail.com";
-    # gitSigningKey = "";
+    gitSigningKey = "07F0D06865380163";
     name = "Leo Pang";
     username = "leopang";
     github_username = "allthatjazzleo";
