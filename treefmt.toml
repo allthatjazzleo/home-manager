@@ -3,4 +3,4 @@ command = "alejandra"
 includes = ["*.nix"]
 
 [global]
-excludes = ["treefmt.toml"]
+excludes = ["treefmt.toml", "lefthook.yml"]
