@@ -23,6 +23,10 @@ in {
         map (path: builtins.replaceStrings ["~"] [homeDirectory] path)
         user.ageIdentityPaths
       else [];
+    sopsAgeKeyPath =
+      if nixpkgs.stdenv.hostPlatform.isDarwin
+      then "${homeDirectory}/Library/Application Support/sops/age/keys.txt"
+      else "${homeDirectory}/.config/sops/age/keys.txt";
   in {
     home = {
       inherit homeDirectory packages;
@@ -51,6 +55,18 @@ in {
     age.secrets.nix-config = {
       file = ./secrets/nix.conf.age;
       path = "${homeDirectory}/.config/nix/nix.conf";
+    };
+    age.secrets.sops-age-key = {
+      file = ./secrets/sops-age-key.age;
+      path = sopsAgeKeyPath;
+    };
+
+    sops = {
+      age.keyFile = config.age.secrets.sops-age-key.path;
+      defaultSopsFile = ./secrets/secrets.yaml;
+      secrets.mysecret = {
+        path = "${homeDirectory}/.config/mysecret";
+      };
     };
 
     nixpkgs = {

@@ -5,4 +5,5 @@ let
 in {
   "cells/homemanager/secrets/ssh-config.age".publicKeys = users;
   "cells/homemanager/secrets/nix.conf.age".publicKeys = users;
+  "cells/homemanager/secrets/sops-age-key.age".publicKeys = users;
 }

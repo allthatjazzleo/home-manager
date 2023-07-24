@@ -35,4 +35,23 @@
       };
     };
   };
+
+  sops = {
+    commands = [{package = inputs.nixpkgs.sops;}];
+    data = {
+      creation_rules = [
+        {
+          path_regex = "cells/homemanager/secrets/secrets.*\\.yaml$";
+          key_groups = [
+            {
+              age = ["age16xsy2zm683378v6w54lmghqup7tpkc862jmwff6vavdvusdlnyasu239cj"];
+            }
+          ];
+        }
+      ];
+      keys = ["age16xsy2zm683378v6w54lmghqup7tpkc862jmwff6vavdvusdlnyasu239cj"];
+    };
+    format = "yaml";
+    output = ".sops.yaml";
+  };
 }
