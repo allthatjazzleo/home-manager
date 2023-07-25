@@ -1,6 +1,7 @@
 .vscode
 .DS_Store
 # nixago: ignore-linked-files
+/.sops.yaml
 /lefthook.yml
 
 .direnv/
