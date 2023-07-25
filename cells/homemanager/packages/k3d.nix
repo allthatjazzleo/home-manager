@@ -6,7 +6,7 @@
 in
   nixpkgs.k3d.overrideAttrs (old: rec {
     version = "5.5.1";
-    k3sVersion = "v1.21.7-k3s1";
+    k3sVersion = "1.21.7-k3s1";
     src = nixpkgs.fetchFromGitHub {
       owner = "k3d-io";
       repo = "k3d";
