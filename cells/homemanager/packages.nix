@@ -32,7 +32,7 @@ in {
         k3d
         kubectl
         kubectx
-        kubernetes-helm
+        (wrapHelm kubernetes-helm {plugins = [kubernetes-helmPlugins.helm-secrets pkgs.kubernetes-helmPlugins.helm-diff];})
         kustomize
         lorri
         nixfmt
