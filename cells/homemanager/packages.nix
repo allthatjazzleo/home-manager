@@ -37,8 +37,10 @@ in {
         lorri
         nixfmt
         nodejs-18_x
+        operator-sdk
         rustup
         shellcheck
+        smartmontools
         starship
         terraform
         tmux

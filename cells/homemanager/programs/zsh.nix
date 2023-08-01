@@ -23,7 +23,6 @@
         "aws"
         "brew"
         "docker"
-        "docker"
         "docker-compose"
         "git"
         "golang"

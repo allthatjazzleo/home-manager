@@ -15,6 +15,7 @@
         utm
         postman
         iterm2
+        jetbrains.goland
       ]; # user specific packages
     ageIdentityPaths = ["~/.ssh/id_ed25519_homemanager"];
     # zsh = false; # programs
