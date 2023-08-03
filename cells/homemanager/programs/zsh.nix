@@ -33,6 +33,7 @@
         "kubectl"
         "microk8s"
         "oc"
+        "operator-sdk"
         "poetry"
         "python"
         "rust"
