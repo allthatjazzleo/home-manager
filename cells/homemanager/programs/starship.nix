@@ -9,6 +9,7 @@
     # Configuration written to ~/.config/starship.toml
     settings = {
       add_newline = false;
+      command_timeout = 1000;
       aws.disabled = true;
       character = {
         format = "❯ ";
