@@ -46,7 +46,7 @@ in {
         tmux
         tree
         yarn
-        yq
+        yq-go
         zsh-autosuggestions
         zsh-syntax-highlighting
 
