@@ -38,6 +38,7 @@ in {
         nixfmt
         nodejs-18_x
         operator-sdk
+        poetry
         rustup
         shellcheck
         smartmontools
