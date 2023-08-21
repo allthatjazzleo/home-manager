@@ -5,13 +5,13 @@
   inherit (inputs) nixpkgs;
 in
   nixpkgs.k3d.overrideAttrs (old: rec {
-    version = "5.5.1";
-    k3sVersion = "1.21.7-k3s1";
+    version = "5.5.2";
+    k3sVersion = "1.27.4-k3s1";
     src = nixpkgs.fetchFromGitHub {
       owner = "k3d-io";
       repo = "k3d";
       rev = "v${version}";
-      sha256 = "sha256-cXUuWR5ALgCgr1bK/Qpdpo978p3PRL3/H6j1T7DKrT4=";
+      sha256 = "sha256-Pa2kqeVl+TEsHOpnE7+iG3feYVAuYrDYnWyDpWJay7M=";
     };
     ldflags = let
       t = "github.com/k3d-io/k3d/v${nixpkgs.lib.versions.major version}/version";
