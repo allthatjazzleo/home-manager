@@ -9,7 +9,7 @@ in {
       if builtins.hasAttr "packages" user
       then user.packages nixpkgs
       else [];
-    k3d = import ./packages/k3d.nix {inherit inputs cell;};
+    # k3d = import ./packages/k3d.nix {inherit inputs cell;};
   in
     with nixpkgs;
       [
