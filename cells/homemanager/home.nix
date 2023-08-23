@@ -61,13 +61,13 @@ in {
       path = sopsAgeKeyPath;
     };
 
-    # sops = {
-    #   age.keyFile = config.age.secrets.sops-age-key.path;
-    #   defaultSopsFile = ./secrets/secrets.yaml;
-    #   secrets.mysecret = {
-    #     path = "${homeDirectory}/.config/mysecret";
-    #   };
-    # };
+    sops = {
+      age.keyFile = config.age.secrets.sops-age-key.path;
+      defaultSopsFile = ./secrets/secrets.yaml;
+      secrets.mysecret = {
+        path = "${homeDirectory}/.config/mysecret";
+      };
+    };
 
     nixpkgs = {
       config = {
