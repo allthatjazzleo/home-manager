@@ -24,6 +24,7 @@ in {
         gnupg
         go
         go-tools
+        google-cloud-sdk
         gopls
         helmfile
         htop
