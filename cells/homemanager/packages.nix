@@ -24,7 +24,7 @@ in {
         gnupg
         go
         go-tools
-        google-cloud-sdk
+        (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
         gopls
         helmfile
         htop
