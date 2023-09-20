@@ -11,12 +11,14 @@ in {
       else [];
     # k3d = import ./packages/k3d.nix {inherit inputs cell;};
     open-interpreter = import ./packages/open-interpreter.nix {inherit inputs cell;};
+    daml-sdk = import ./packages/daml-sdk.nix {inherit inputs cell;};
   in
     with nixpkgs;
       [
         ansible
         awscli2
         cachix
+        daml-sdk
         delve
         direnv
         dive

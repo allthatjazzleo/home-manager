@@ -19,6 +19,7 @@
       ]; # user specific packages
     ageIdentityPaths = ["~/.ssh/id_ed25519_homemanager"];
     # zsh = false; # programs
+    java = true;
   };
   workuser = {
     email = "xx@xxx.com";
