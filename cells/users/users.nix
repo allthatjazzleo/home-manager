@@ -1,7 +1,10 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  canton = import ../homemanager/packages/canton.nix {inherit inputs cell;};
+  daml-sdk = import ../homemanager/packages/daml-sdk.nix {inherit inputs cell;};
+in {
   leopang = {
     email = "pangleo1994@gmail.com";
     gitSigningKey = "07F0D06865380163";
@@ -10,12 +13,14 @@
     github_username = "allthatjazzleo";
     packages = pkgs:
       with pkgs; [
+        canton
+        daml-sdk
         discord
-        zoom-us
-        utm
-        postman
         iterm2
         jetbrains.goland
+        postman
+        utm
+        zoom-us
       ]; # user specific packages
     ageIdentityPaths = ["~/.ssh/id_ed25519_homemanager"];
     # zsh = false; # programs
