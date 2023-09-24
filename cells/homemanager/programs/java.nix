@@ -8,6 +8,7 @@
 in {
   java = {
     enable = user.java or false;
-    package = nixpkgs.jdk17;
+    # nixpkgs.jdk17 should enable enableJavaFX
+    package = nixpkgs.jdk17.overrideAttrs (oldAttrs: {enableJavaFX = true;});
   };
 }
