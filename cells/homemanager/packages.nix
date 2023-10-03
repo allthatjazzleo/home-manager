@@ -30,6 +30,7 @@ in {
         helmfile
         htop
         inetutils
+        jq
         just
         k3d
         kubectl
