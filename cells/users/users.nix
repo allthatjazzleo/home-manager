@@ -18,7 +18,6 @@ in {
         discord
         iterm2
         jetbrains.goland
-        postman
         utm
         zoom-us
       ]; # user specific packages
