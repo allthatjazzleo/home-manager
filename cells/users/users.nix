@@ -3,7 +3,7 @@
   cell,
 }: let
   canton = import ../homemanager/packages/canton.nix {inherit inputs cell;};
-  daml-sdk = import ../homemanager/packages/daml-sdk.nix {inherit inputs cell;};
+  daml = import ../homemanager/packages/daml.nix {inherit inputs cell;};
 in {
   leopang = {
     email = "pangleo1994@gmail.com";
@@ -14,7 +14,7 @@ in {
     packages = pkgs:
       with pkgs; [
         canton
-        daml-sdk
+        daml
         discord
         iterm2
         jetbrains.goland
