@@ -30,9 +30,13 @@ in {
         helmfile
         htop
         inetutils
+        istioctl
         jq
+        jsonnet
         just
         k3d
+        kind
+        krew
         kubectl
         kubectx
         (wrapHelm kubernetes-helm {plugins = [kubernetes-helmPlugins.helm-secrets kubernetes-helmPlugins.helm-diff];})
@@ -52,6 +56,7 @@ in {
         tree
         yarn
         yq-go
+        zig
         zsh-autosuggestions
         zsh-syntax-highlighting
 

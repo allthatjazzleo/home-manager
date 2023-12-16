@@ -52,6 +52,9 @@
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
       # End Nix
+      # krew
+      export PATH="$HOME/.krew/bin:$PATH"
+      # End krew
     '';
     initExtra = ''
       bindkey '^f' autosuggest-accept
