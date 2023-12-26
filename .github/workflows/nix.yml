@@ -1,0 +1,23 @@
+name: Run fmt-ci
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check_nix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+      - name: Run `fmt-ci`
+        run: nix develop --command fmt-ci
