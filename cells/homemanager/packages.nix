@@ -20,6 +20,7 @@ in {
         delve
         direnv
         dive
+        envsubst
         gh
         git-open
         gnupg
