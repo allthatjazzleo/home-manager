@@ -21,7 +21,7 @@ in {
         enable = true;
         userEmail = user.email;
         userName = user.github_username;
-        diff-so-fancy = {
+        delta = {
           enable = true;
         };
         signing = {
