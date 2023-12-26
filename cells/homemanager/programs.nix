@@ -21,6 +21,9 @@ in {
         enable = true;
         userEmail = user.email;
         userName = user.github_username;
+        diff-so-fancy = {
+          enable = true;
+        };
         signing = {
           key =
             if builtins.hasAttr "gitSigningKey" user
