@@ -47,6 +47,8 @@ in {
         nodejs-18_x
         operator-sdk
         open-interpreter
+        openssl
+        pkg-config
         poetry
         rustup
         shellcheck

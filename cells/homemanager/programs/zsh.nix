@@ -67,4 +67,8 @@
     enable = true;
     enableZshIntegration = true;
   };
+  nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }
