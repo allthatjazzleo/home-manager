@@ -11,10 +11,12 @@
       add_newline = false;
       command_timeout = 1000;
       aws.disabled = true;
+      format = "$time$all";
       character = {
-        format = "❯ ";
+        format = "\\$ "; # escape the dollar sign
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
+        disabled = false;
       };
       directory = {
         format = "[$path]($style)[$read_only]($read_only_style) ";
