@@ -24,6 +24,7 @@ in {
     ageIdentityPaths = ["~/.ssh/id_ed25519_homemanager"];
     # zsh = false; # programs
     java = true;
+    session_recording = false;
   };
   workuser = {
     email = "xx@xxx.com";
