@@ -47,7 +47,7 @@ in {
         nodejs-18_x
         operator-sdk
         open-interpreter
-        openssl
+        openssl_3_1
         pkg-config
         poetry
         rustup
