@@ -10,7 +10,7 @@ in {
       then user.packages nixpkgs
       else [];
     # k3d = import ./packages/k3d.nix {inherit inputs cell;};
-    open-interpreter = import ./packages/open-interpreter.nix {inherit inputs cell;};
+    # open-interpreter = import ./packages/open-interpreter.nix {inherit inputs cell;};
   in
     with nixpkgs;
       [
@@ -48,7 +48,7 @@ in {
         nodejs-18_x
         operator-sdk
         open-interpreter
-        openssl_3_1
+        openssl_3_2
         pkg-config
         poetry
         rustup
