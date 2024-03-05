@@ -27,18 +27,34 @@ in {
       if nixpkgs.stdenv.hostPlatform.isDarwin
       then "${homeDirectory}/Library/Application Support/sops/age/keys.txt"
       else "${homeDirectory}/.config/sops/age/keys.txt";
-    getPkgOutPath = pkgs: name: let
-      pkg = builtins.filter (pkg: builtins.match (".*" + name + ".*") pkg.name != null) pkgs;
+    getPkgOutPath = {
+      pkgs,
+      name,
+      dev ? null,
+    }: let
+      pkg = builtins.head (builtins.filter (pkg: builtins.match (".*" + name + ".*") pkg.name != null) pkgs);
     in
-      if pkg == []
+      if pkg == null
       then ""
-      else (builtins.head pkg).outPath;
+      else if dev == null
+      then pkg.outPath
+      else pkg.dev.outPath;
   in {
     home = {
       inherit homeDirectory packages;
       username = user.username;
       stateVersion = "23.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
-      sessionVariables = {DAML_HOME = getPkgOutPath packages "daml-sdk";};
+      sessionVariables = {
+        DAML_HOME = getPkgOutPath {
+          pkgs = packages;
+          name = "daml-sdk";
+        };
+        PKG_CONFIG_PATH = "${(getPkgOutPath {
+          pkgs = packages;
+          name = "openssl";
+          dev = "dev";
+        })}/lib/pkgconfig";
+      };
       shellAliases = {update = "home-manager switch";};
 
       file.".config/nixpkgs/config.nix".text = ''
