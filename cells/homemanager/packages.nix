@@ -56,6 +56,7 @@ in {
         smartmontools
         starship
         terraform
+        tflint
         tmux
         tree
         yarn
