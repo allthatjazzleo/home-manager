@@ -7,7 +7,7 @@
   zsh = {
     enable = user.zsh or true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
       ll = "ls -alh";

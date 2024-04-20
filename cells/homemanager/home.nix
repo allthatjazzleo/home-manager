@@ -45,10 +45,10 @@ in {
       username = user.username;
       stateVersion = "23.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
       sessionVariables = {
-        DAML_HOME = getPkgOutPath {
-          pkgs = packages;
-          name = "daml-sdk";
-        };
+        # DAML_HOME = getPkgOutPath {
+        #   pkgs = packages;
+        #   name = "daml-sdk";
+        # };
         PKG_CONFIG_PATH = "${(getPkgOutPath {
           pkgs = packages;
           name = "openssl";

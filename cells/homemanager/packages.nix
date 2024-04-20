@@ -44,7 +44,7 @@ in {
         (wrapHelm kubernetes-helm {plugins = [kubernetes-helmPlugins.helm-secrets kubernetes-helmPlugins.helm-diff];})
         kustomize
         lorri
-        nixfmt
+        nixfmt-classic
         nodejs-18_x
         operator-sdk
         open-interpreter

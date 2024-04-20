@@ -13,8 +13,8 @@ in {
     github_username = "allthatjazzleo";
     packages = pkgs:
       with pkgs; [
-        canton
-        daml
+        # canton
+        # daml
         discord
         iterm2
         jetbrains.goland
