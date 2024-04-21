@@ -17,6 +17,7 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mac-app-util.url = "github:hraban/mac-app-util";
     nixago = {
       url = "github:nix-community/nixago";
       inputs.nixpkgs.follows = "nixpkgs";
