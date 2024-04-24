@@ -64,6 +64,11 @@ in {
           allowUnsupportedSystem = true;
         }
       '';
+
+      file.".config/fzf-git.sh".text = builtins.readFile (builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/junegunn/fzf-git.sh/master/fzf-git.sh";
+        sha256 = "10h7lhf99jdmzwxl0v0qvild0cr0cx5kv8kanni8w1v1vbh47pjd";
+      });
     };
 
     programs = cell.programs.default homeDirectory user;

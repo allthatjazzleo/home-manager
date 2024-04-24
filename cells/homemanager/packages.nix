@@ -16,11 +16,13 @@ in {
       [
         ansible
         awscli2
+        bat
         cachix
         delve
         direnv
         dive
         envsubst
+        fd
         gh
         git-open
         gnupg

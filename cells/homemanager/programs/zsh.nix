@@ -60,6 +60,19 @@
       # krew
       export PATH="$HOME/.krew/bin:$PATH"
       # End krew
+      # fzf.
+      _fzf_comprun() {
+        local command=$1
+        shift
+        case "$command" in
+          cd)           fzf --preview 'eza --tree --color=always {} | head -200'   "$@" ;;
+          export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+          ssh)          fzf --preview 'dig {}'                   "$@" ;;
+          *)            fzf --preview 'bat -n --color=always {} --line-range :500 {}' "$@" ;;
+        esac
+      }
+      source ~/.config/fzf-git.sh
+      # End fzf
     '';
     initExtra =
       ''
@@ -88,10 +101,35 @@
         else ""
       );
   };
-
+  eza = {
+    enable = true;
+  };
+  bat = {
+    enable = true;
+    config = {
+      theme = "Dracula";
+    };
+    themes = {
+      dracula = {
+        src = inputs.nixpkgs.fetchFromGitHub {
+          owner = "dracula";
+          repo = "sublime"; # Bat uses sublime syntax for its themes
+          rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+          sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+        };
+        file = "Dracula.tmTheme";
+      };
+    };
+  };
   fzf = {
     enable = true;
     enableZshIntegration = true;
+    defaultCommand = "fd --type file --follow --hidden --color=always --exclude .git";
+    defaultOptions = ["--ansi" "--bind ctrl-j:preview-up,ctrl-k:preview-down,ctrl-u:preview-half-page-up,ctrl-p:preview-half-page-down"];
+    fileWidgetCommand = "fd --type file --follow --hidden --color=always --exclude .git";
+    fileWidgetOptions = ["--ansi" "--preview-window 'right:57%'" "--preview 'bat -n --color=always --line-range :500 {}'"];
+    changeDirWidgetCommand = "fd --type=d --follow --hidden --color=always --exclude .git";
+    changeDirWidgetOptions = ["--ansi" "--preview 'eza --tree --color=always {} | head -200'"];
   };
   nix-index = {
     enable = true;
