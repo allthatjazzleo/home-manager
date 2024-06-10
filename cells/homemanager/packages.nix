@@ -23,6 +23,7 @@ in {
         dive
         envsubst
         fd
+        fastfetch
         gh
         git-open
         gnupg
@@ -53,6 +54,8 @@ in {
         openssl_3_2
         pkg-config
         poetry
+        protobuf_23
+        pv
         rustup
         shellcheck
         smartmontools
@@ -63,7 +66,6 @@ in {
         tree
         yarn
         yq-go
-        zig
         zsh-autosuggestions
         zsh-syntax-highlighting
 
