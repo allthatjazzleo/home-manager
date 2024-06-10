@@ -24,6 +24,9 @@ in {
         delta = {
           enable = true;
         };
+        lfs = {
+          enable = true;
+        };
         signing = {
           key =
             if builtins.hasAttr "gitSigningKey" user
