@@ -15,6 +15,7 @@ in {
       with pkgs; [
         # canton
         # daml
+        argocd
         discord
         iterm2
         jetbrains.goland
