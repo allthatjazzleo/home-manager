@@ -23,6 +23,16 @@ in {
         userName = user.github_username;
         delta = {
           enable = true;
+          options = {
+            features = "decorations";
+            whitespace-error-style = "22 reverse";
+            line-numbers = true;
+            decorations = {
+              commit-decoration-style = "bold yellow box ul";
+              file-style = "bold yellow ul";
+              file-decoration-style = "none";
+            };
+          };
         };
         lfs = {
           enable = true;

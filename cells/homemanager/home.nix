@@ -43,12 +43,8 @@ in {
     home = {
       inherit homeDirectory packages;
       username = user.username;
-      stateVersion = "23.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
+      stateVersion = "24.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
       sessionVariables = {
-        # DAML_HOME = getPkgOutPath {
-        #   pkgs = packages;
-        #   name = "daml-sdk";
-        # };
         PKG_CONFIG_PATH = "${(getPkgOutPath {
           pkgs = packages;
           name = "openssl";
@@ -73,29 +69,37 @@ in {
 
     programs = cell.programs.default homeDirectory user;
 
-    age.identityPaths =
-      options.age.identityPaths.default
-      ++ userAgeIdentityPaths;
-    age.secrets.ssh-config = {
-      file = ./secrets/ssh-config.age;
-      path = "${homeDirectory}/.ssh/config";
-    };
-    age.secrets.nix-config = {
-      file = ./secrets/nix.conf.age;
-      path = "${homeDirectory}/.config/nix/nix.conf";
-    };
-    age.secrets.sops-age-key = {
-      file = ./secrets/sops-age-key.age;
-      path = sopsAgeKeyPath;
-    };
+    age.identityPaths = userAgeIdentityPaths;
 
-    sops = {
-      age.keyFile = config.age.secrets.sops-age-key.path;
-      defaultSopsFile = ./secrets/secrets.yaml;
-      secrets.mysecret = {
-        path = "${homeDirectory}/.config/mysecret";
-      };
-    };
+    # don't create age and sops secrets if no age key identity paths are provided to avoid errors
+    age.secrets =
+      if builtins.length config.age.identityPaths > 0
+      then {
+        ssh-config = {
+          file = ./secrets/ssh-config.age;
+          path = "${homeDirectory}/.ssh/config";
+        };
+        nix-config = {
+          file = ./secrets/nix.conf.age;
+          path = "${homeDirectory}/.config/nix/nix.conf";
+        };
+        sops-age-key = {
+          file = ./secrets/sops-age-key.age;
+          path = sopsAgeKeyPath;
+        };
+      }
+      else {};
+
+    sops =
+      if builtins.length config.age.identityPaths > 0
+      then {
+        age.keyFile = config.age.secrets.sops-age-key.path;
+        defaultSopsFile = ./secrets/secrets.yaml;
+        secrets.mysecret = {
+          path = "${homeDirectory}/.config/mysecret";
+        };
+      }
+      else {};
 
     nixpkgs = {
       config = {

@@ -50,7 +50,7 @@ in {
         nixfmt-classic
         nodejs-18_x
         operator-sdk
-        open-interpreter
+        # open-interpreter
         openssl_3_2
         pkg-config
         poetry
@@ -59,6 +59,7 @@ in {
         rustup
         shellcheck
         smartmontools
+        sops
         starship
         terraform
         tflint

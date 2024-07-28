@@ -48,7 +48,6 @@
         (devshells "devshells")
         (data "users")
         (functions "configurations")
-        (functions "modules")
         (functions "packages")
         (functions "programs")
         (functions "home")
