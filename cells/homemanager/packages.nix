@@ -48,9 +48,7 @@ in {
         kustomize
         lorri
         nixfmt-classic
-        nodejs-18_x
         operator-sdk
-        # open-interpreter
         openssl_3_2
         pkg-config
         poetry
