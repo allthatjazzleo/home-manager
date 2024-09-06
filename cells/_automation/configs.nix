@@ -27,7 +27,9 @@
               FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
               [ -z "$FILES" ] && exit 0
 
-              fmt-ci && exit 0
+              fmt-ci 2>&1 | sed 's/\x1b\[[0-9;]*m//g'; fmt_ci_status="${PIPESTATUS [0]}";
+              [[ $fmt_ci_status -eq 0 ]] && exit 0
+
               echo "Please add treefmt formatted file(s)!" && exit 1
             '';
           };

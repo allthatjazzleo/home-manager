@@ -28,7 +28,7 @@ in {
       }
       {
         name = "fmt-ci";
-        command = "treefmt --fail-on-change";
+        command = "treefmt --ci";
         help = "Formats nix files";
         category = "Development";
       }
