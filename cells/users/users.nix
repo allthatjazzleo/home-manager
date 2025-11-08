@@ -19,7 +19,10 @@ in {
         discord
         iterm2
         jetbrains.goland
-        nodejs-18_x
+        monitorcontrol
+        nodejs_22
+        raycast
+        lima
         utm
         zoom-us
       ]; # user specific packages

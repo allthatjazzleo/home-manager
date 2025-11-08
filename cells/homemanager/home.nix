@@ -43,7 +43,8 @@ in {
     home = {
       inherit homeDirectory packages;
       username = user.username;
-      stateVersion = "24.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
+      stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
+      enableNixpkgsReleaseCheck = false;
       sessionVariables = {
         PKG_CONFIG_PATH = "${(getPkgOutPath {
           pkgs = packages;

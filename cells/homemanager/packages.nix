@@ -17,6 +17,7 @@ in {
         ansible
         awscli2
         bat
+        buf
         cachix
         delve
         direnv
@@ -47,13 +48,17 @@ in {
         (wrapHelm kubernetes-helm {plugins = [kubernetes-helmPlugins.helm-secrets kubernetes-helmPlugins.helm-diff];})
         kustomize
         lorri
+        mitmproxy
         nixfmt-classic
-        operator-sdk
-        openssl_3_2
+        openssl
         pkg-config
         poetry
-        protobuf_23
+        protobuf_28
         pv
+        (python313.withPackages (ps:
+          with ps; [
+            pip
+          ]))
         rustup
         shellcheck
         smartmontools
