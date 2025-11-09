@@ -68,6 +68,7 @@ in {
         tflint
         tmux
         tree
+        uv
         yarn
         yq-go
         zsh-autosuggestions
