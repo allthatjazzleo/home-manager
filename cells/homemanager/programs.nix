@@ -16,23 +16,33 @@ in {
   in
     {
       home-manager.enable = true;
-      direnv.enable = true;
+      direnv = {
+        enable = true;
+        enableZshIntegration = true;
+        nix-direnv.enable = true;
+      };
+      delta = {
+        enable = true;
+        options = {
+          features = "decorations";
+          whitespace-error-style = "22 reverse";
+          line-numbers = true;
+          decorations = {
+            commit-decoration-style = "bold yellow box ul";
+            file-style = "bold yellow ul";
+            file-decoration-style = "none";
+          };
+        };
+      };
       git = {
         enable = true;
-        userEmail = user.email;
-        userName = user.github_username;
-        delta = {
-          enable = true;
-          options = {
-            features = "decorations";
-            whitespace-error-style = "22 reverse";
-            line-numbers = true;
-            decorations = {
-              commit-decoration-style = "bold yellow box ul";
-              file-style = "bold yellow ul";
-              file-decoration-style = "none";
-            };
+        settings = {
+          user = {
+            name = user.github_username;
+            email = user.email;
           };
+          # set default branch to main
+          init.defaultBranch = "main";
         };
         lfs = {
           enable = true;
@@ -49,8 +59,6 @@ in {
         };
         #hooks = { pre-commit = user.gitPreCommitHook; };
 
-        # set default branch to main
-        extraConfig.init.defaultBranch = "main";
         ignores = [".DS_Store"];
       };
     }

@@ -53,7 +53,7 @@ in {
         openssl
         pkg-config
         poetry
-        protobuf_28
+        protobuf_33
         pv
         (python313.withPackages (ps:
           with ps; [

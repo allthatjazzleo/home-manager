@@ -43,7 +43,7 @@ in {
     home = {
       inherit homeDirectory packages;
       username = user.username;
-      stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
+      stateVersion = "25.11"; # See https://nixos.org/manual/nixpkgs/stable for most recent version
       enableNixpkgsReleaseCheck = false;
       sessionVariables = {
         PKG_CONFIG_PATH = "${(getPkgOutPath {
@@ -64,7 +64,7 @@ in {
 
       file.".config/fzf-git.sh".text = builtins.readFile (builtins.fetchurl {
         url = "https://raw.githubusercontent.com/junegunn/fzf-git.sh/master/fzf-git.sh";
-        sha256 = "00n22b86lr02pgipadnv7rmqklrcdz3pydc7py8zjffzzdwa24ia";
+        sha256 = "1jq1cvl5m8128wwkpnhpmlfhamgxd2mqibs1frcp13bljw7brq99";
       });
     };
 
